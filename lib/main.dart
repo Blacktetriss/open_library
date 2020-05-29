@@ -1,66 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:adobe_xd/adobe_xd.dart';
 
-void main() {
-  runApp(
-    SettingsStore(
-      child: App(),
-    ),
-  );
-}
+import './XD/lib/XD_Start.dart';
+import './XD/lib/XD_Login.dart';
+import './XD/lib/XD_Signup.dart';
+import './XD/lib/XD_Terms.dart';
 
-class SettingsStore extends InheritedWidget {
-  final ValueNotifier<ThemeData> theme = ValueNotifier(ThemeData.light());
 
-  SettingsStore({@required Widget child}) : super(child: child);
+void main() => runApp(MyApp());
 
-  static SettingsStore of(BuildContext context) =>
-      context.dependOnInheritedWidgetOfExactType<SettingsStore>();
-  
-  void updateTheme(ThemeData theme) => this.theme.value = theme;
-
-  @override
-  bool updateShouldNotify(SettingsStore oldWidget) => oldWidget.theme != this.theme;
-}
-
-class App extends StatelessWidget {
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ValueListenableBuilder(
-      valueListenable: SettingsStore.of(context).theme,
-      builder: (context, theme, child) => MaterialApp(
-        theme: theme,
-        home: SettingsView(),
+
+    return MaterialApp(
+      home: Scaffold(
+        body: XD_Signup(),
       ),
     );
   }
 }
-
-class SettingsView extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('1488'),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            RaisedButton(
-              onPressed: () =>
-                  SettingsStore.of(context).updateTheme(ThemeData.light()),
-              child: Text('Light'),
-            ),
-            RaisedButton(
-              onPressed: () =>
-                  SettingsStore.of(context).updateTheme(ThemeData.dark()),
-              child: Text('Dark'),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-

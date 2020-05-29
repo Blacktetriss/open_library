@@ -28,6 +28,9 @@ dependencies:
   http: ^0.12.1
   flutter:
     sdk: flutter
+  get: ^2.5.9
+  shared_preferences: ^0.5.7+3
+  adobe_xd: ^0.1.4
 
 
 
@@ -68,6 +71,7 @@ flutter:
     - romantic.png
     - science.png
     - scienceFF.png
+    - logo_OL.png
 
 
 
