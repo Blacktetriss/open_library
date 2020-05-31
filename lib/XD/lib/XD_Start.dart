@@ -20,7 +20,7 @@ class XD_Start extends StatelessWidget {
               height: 59.0,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: const AssetImage(''),
+                  image: const AssetImage('logo_OL.png'),
                   fit: BoxFit.fill,
                 ),
               ),
