@@ -31,6 +31,7 @@ dependencies:
   get: ^2.5.9
   shared_preferences: ^0.5.7+3
   adobe_xd: ^0.1.4
+  smart_flare: ^0.2.9+1
 
 
 
@@ -56,24 +57,11 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - art.png
-    - audio.png
-    - biography.png
-    - child.png
-    - comedy.png
-    - detectiv.png
-    - fantasy.png
-    - history.png
-    - medical.png
-    - paperbook.png
-    - recipe.png
-    - religion.png
-    - romantic.png
-    - science.png
-    - scienceFF.png
+    - assets/images/
+    - assets/animation/start.flr
+    - assets/icons_png/
     - logo_OL.png
-
-
+    - lining.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
