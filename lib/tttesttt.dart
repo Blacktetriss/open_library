@@ -1,136 +1,82 @@
-// import 'package:flutter/foundation.dart';
 // import 'package:flutter/material.dart';
-// import 'package:get/get.dart';
-// import 'package:shared_preferences/shared_preferences.dart'; //STEP 4 - Import shared_preferences
 
-// void main() {
-//   Get.lazyPut<ThemeController>(
-//       () => ThemeController()); //STEP 5 - lazy create ThemeController
-//   runApp(MyApp());
-// }
-
-// class MyApp extends StatelessWidget {
+// class LoginTextField extends StatelessWidget {
 //   @override
 //   Widget build(BuildContext context) {
-//     ThemeController.to
-//         .getThemeModeFromPreferences(); //STEP 6 - Get saved theme at startup
-//     return GetMaterialApp(
-//       title: 'Theme change using Get',
-//       theme: ThemeData.light().copyWith(primaryColor: Colors.green),
-//       darkTheme: ThemeData.dark().copyWith(primaryColor: Colors.purple),
-//       themeMode: ThemeMode.system,
-//       home: MyHomePage(),
+//     return MaterialApp(
+//       title: 'Retrieve Text Input',
+//       home: LoginForm(),
 //     );
 //   }
 // }
 
-// class MyHomePage extends StatefulWidget {
-//   MyHomePage({Key key}) : super(key: key);
 
+// class LoginForm extends StatefulWidget {
 //   @override
-//   _MyHomePageState createState() => _MyHomePageState();
+//   _LoginFormState createState() => _LoginFormState();
 // }
 
-// class _MyHomePageState extends State<MyHomePage> {
-//   ThemeMode _themeMode;
+// class _LoginFormState extends State<LoginForm> {
+//   final _userController = TextEditingController();
+//   final _passController = TextEditingController();
+
+//   @override
+//   void dispose() {
+//     _userController.dispose();
+//     _passController.dispose();
+//     super.dispose();
+//   }
 
 //   @override
 //   Widget build(BuildContext context) {
-//     _themeMode = ThemeController
-//         .to.themeMode; //STEP 7 - get the theme from ThemeController
-//     print('${MediaQuery.of(context).platformBrightness}');
-//     print('${Theme.of(context).brightness}');
 //     return Scaffold(
-//       appBar: AppBar(),
-//       body: Column(
-//         mainAxisAlignment: MainAxisAlignment.center,
-//         crossAxisAlignment: CrossAxisAlignment.start,
-//         children: <Widget>[
-//           Center(
-//             child: Text(
-//               'System Brightness: ${Get.mediaQuery.platformBrightness.toString()}',
-//               style: TextStyle(fontSize: 20),
+//       body: Center(
+//         child: Column(
+//           mainAxisAlignment: MainAxisAlignment.center,
+//           children: <Widget>[
+//             Padding(
+//               padding: const EdgeInsets.fromLTRB(16.0, 4.0, 16.0, 4.0),
+//               child: TextField(
+//                 decoration: InputDecoration(
+//                   prefixIcon: Icon(Icons.person),
+//                   hintText: 'hongkongpingpong',
+//                   border: OutlineInputBorder(
+//                     borderRadius: BorderRadius.circular(30.0),
+//                   ),
+//                 ),
+//                 controller: _userController,
+//               ),
 //             ),
-//           ),
-//           SizedBox(height: 24),
-//           Center(
-//             child: Text(
-//               'Theme Brightness: ${Get.theme.brightness.toString()}',
-//               style: TextStyle(fontSize: 20),
+
+//             Padding(
+//               padding: const EdgeInsets.fromLTRB(16.0, 4.0, 16.0, 4.0),
+//               child: TextField(
+//                 decoration: InputDecoration(
+//                   prefixIcon: Icon(Icons.vpn_key),
+//                   hintText: 'password',
+//                   border: OutlineInputBorder(
+//                     borderRadius: BorderRadius.circular(30.0),
+//                   ),
+//                 ),
+//                 controller: _passController,
+//               ),
 //             ),
-//           ),
-//           SizedBox(height: 24),
-//           Text(
-//             'ThemeMode',
-//             style: TextStyle(fontSize: 20),
-//             textAlign: TextAlign.left,
-//           ),
-//           RadioListTile(
-//             title: Text('system'),
-//             value: ThemeMode.system,
-//             groupValue: _themeMode,
-//             onChanged: (value) {
-//               setState(() {
-//                 _themeMode = value;
-//                 ThemeController.to
-//                     .setThemeMode(_themeMode); //STEP 8 - change this line
-//               });
-//             },
-//           ),
-//           RadioListTile(
-//             title: Text('dark'),
-//             value: ThemeMode.dark,
-//             groupValue: _themeMode,
-//             onChanged: (value) {
-//               setState(() {
-//                 _themeMode = value;
-//                 ThemeController.to.setThemeMode(_themeMode);
-//               });
-//             },
-//           ),
-//           RadioListTile(
-//             title: Text('light'),
-//             value: ThemeMode.light,
-//             groupValue: _themeMode,
-//             onChanged: (value) {
-//               setState(() {
-//                 _themeMode = value;
-//                 ThemeController.to.setThemeMode(_themeMode);
-//               });
-//             },
-//           ),
-//         ],
+//             RaisedButton(
+//               onPressed: LoginForm(
+//                 _userController,
+//                 _passController,
+//               ),
+//               child: Text('login'),)
+//           ],
+//         ),
 //       ),
 //     );
-//   }
-// }
 
-// //STEP 9 - add our ThemeController
-// class ThemeController extends GetController {
-//   static ThemeController get to => Get.find();
+//     TextLogin() {
+//     String user = _userController.text;
+//     String pass = _passController.text;
 
-//   SharedPreferences prefs;
-//   ThemeMode _themeMode;
-//   ThemeMode get themeMode => _themeMode;
-
-//   Future<void> setThemeMode(ThemeMode themeMode) async {
-//     Get.changeThemeMode(themeMode);
-//     _themeMode = themeMode;
-//     update(this);
-//     prefs = await SharedPreferences.getInstance();
-//     await prefs.setString('theme', themeMode.toString().split('.')[1]);
-//   }
-
-//   getThemeModeFromPreferences() async {
-//     ThemeMode themeMode;
-//     prefs = await SharedPreferences.getInstance();
-//     String themeText = prefs.getString('theme') ?? 'system';
-//     try {
-//       themeMode =
-//           ThemeMode.values.firstWhere((e) => describeEnum(e) == themeText);
-//     } catch (e) {
-//       themeMode = ThemeMode.system;
+//     print('login attempt: $user with $pass');
 //     }
-//     setThemeMode(themeMode);
 //   }
 // }

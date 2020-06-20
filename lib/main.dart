@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:adobe_xd/adobe_xd.dart';
-import 'package:open_library/XD/lib/XdLoginPage.dart';
-import 'package:open_library/utilits/text_controller.dart';
-import 'package:open_library/home_page.dart';
-// import './XdLogin.dart';
+import './home_page.dart';
 import './start_animation.dart';
+import 'package:open_library/search/input_search.dart';
+import './login_page.dart';
+import './tttesttt.dart';
 
 
 void main() => runApp(MyApp());
@@ -14,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return MaterialApp(
-      // debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: false,
       home: StartAnimation(),
     );
   }

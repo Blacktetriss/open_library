@@ -11,8 +11,6 @@ class _StartAnimationState extends State<StartAnimation> {
   Widget build(BuildContext context) {
     var animationWidth = 360.0;
     var animationHeight = 640.0;
-    // var animationWidthThirds = animationWidth / 3;
-    // var halfAnimationHeight = animationHeight / 5;
 
     var activeAreas = [
 
@@ -21,10 +19,10 @@ class _StartAnimationState extends State<StartAnimation> {
         animationWidth /2, 
         animationHeight /5),
         debugArea: true,
-        // guardComingFrom: ['deactivate'],
+        guardComingFrom: ['deactivate'],
         animationName: 'signup',
         onAreaTapped: () {
-        print('signup signup!');
+        Navigator.pushNamed(context, '/second');
           }),
 
         ActiveArea(
@@ -32,10 +30,10 @@ class _StartAnimationState extends State<StartAnimation> {
         animationWidth /3.5, 
         animationHeight /5),
         debugArea: true,
-        // guardComingFrom: ['deactivate'],
-        animationName: 'skip',
+        guardComingFrom: ['deactivate'],
+        animationName: 'skipa',
         onAreaTapped: () {
-        print('skip skip!');
+        print('skip 1488 skip!');
         })
     ];
     

@@ -1,13 +1,5 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(
-    SettingsStore(
-      child: App(),
-    ),
-  );
-}
-
 class SettingsStore extends InheritedWidget {
   final ValueNotifier<ThemeData> theme = ValueNotifier(ThemeData.light());
 
