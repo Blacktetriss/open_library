@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import './home_page.dart';
+import 'package:open_library/utilits/router.dart' as router;
+import 'package:open_library/utilits/constants.dart';
+import './login_screen.dart';
 import './start_animation.dart';
-import 'package:open_library/search/input_search.dart';
-import './login_page.dart';
-import './tttesttt.dart';
-
-
+import './home.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -13,8 +11,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return MaterialApp(
+      onGenerateRoute: router.generateRoute,
+      initialRoute: startAnimation,
       debugShowCheckedModeBanner: false,
-      home: StartAnimation(),
+      home: Home(),
     );
   }
 }

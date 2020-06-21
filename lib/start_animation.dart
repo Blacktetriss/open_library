@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:smart_flare/smart_flare.dart';
+import './search_screen.dart';
+import './login_screen.dart';
+import 'package:open_library/utilits/constants.dart';
+import 'package:open_library/utilits/router.dart';
 
 class StartAnimation extends StatefulWidget {
   @override
@@ -22,7 +26,7 @@ class _StartAnimationState extends State<StartAnimation> {
         guardComingFrom: ['deactivate'],
         animationName: 'signup',
         onAreaTapped: () {
-        Navigator.pushNamed(context, '/second');
+        Navigator.pushNamed(context, loginScreen);
           }),
 
         ActiveArea(
@@ -32,9 +36,9 @@ class _StartAnimationState extends State<StartAnimation> {
         debugArea: true,
         guardComingFrom: ['deactivate'],
         animationName: 'skipa',
-        onAreaTapped: () {
-        print('skip 1488 skip!');
-        })
+        onAreaTapped:  () {
+            Navigator.pushNamed(context, searchScreen);
+        }),
     ];
     
     return Scaffold(

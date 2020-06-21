@@ -1,20 +1,5 @@
 import 'package:flutter/material.dart';
 
-class LoginTextField extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return SafeArea(
-          child: Scaffold(
-        body: Column(
-          children: <Widget>[
-            LoginForm(),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
 class LoginForm extends StatefulWidget {
   @override
   _LoginFormState createState() => _LoginFormState();
