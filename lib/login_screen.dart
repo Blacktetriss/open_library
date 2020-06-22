@@ -10,12 +10,13 @@ class LoginScreen extends StatelessWidget {
       backgroundColor: Colors.brown[300],
       body: Center(
         child: Stack(
+          alignment: Alignment.bottomCenter,
           children: <Widget>[
-            SmartFlareActor(
-              width: 360,
-              height: 640,
-              filename: 'assets/animation/start.flr',
-            ),
+            // SmartFlareActor(
+            //   width: 360,
+            //   height: 640,
+            //   filename: 'assets/animation/start.flr',
+            // ),
             LoginForm(),
             RaisedButton(
             child: Text('HOME'),

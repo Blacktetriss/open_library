@@ -16,6 +16,6 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case startAnimation:
       return MaterialPageRoute(builder: (_) => StartAnimation());
     default:
-      return MaterialPageRoute(builder: (_) => StartAnimation());
+      return MaterialPageRoute(builder: (_) => SearchScreen());
   }
 }
