@@ -1,13 +1,3 @@
-// To parse this JSON data, do
-//
-//     final search = searchFromJson(jsonString);
-
-// import 'dart:convert';
-
-// Search searchFromJson(String str) => Search.fromJson(json.decode(str));
-
-// String searchToJson(Search data) => json.encode(data.toJson());
-
 class Search {
     int start;
     int numFound;

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:open_library/home.dart';
 import 'package:open_library/login_screen.dart';
-import 'package:open_library/search_screen.dart';
+import 'package:open_library/search/search_screen.dart';
 import 'package:open_library/start_animation.dart';
 import './constants.dart';
 
