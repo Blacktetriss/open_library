@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 // import 'package:open_library/search/search_form.dart';
+import './search_view.dart';
 
 class SearchForm extends StatefulWidget {
   @override
@@ -10,10 +11,10 @@ class SearchForm extends StatefulWidget {
 class _SearchForm extends State<SearchForm> {
   final _inputSearchcontroller = TextEditingController();
 
-  _SearchForm(){
+  _SearchForm() {
     String inputSearch = _inputSearchcontroller.text;
-        _inputSearchcontroller.text = '$inputSearch';
-     }
+    _inputSearchcontroller.text = '$inputSearch';
+  }
 
   // void initState() {
   //   super.initState();
@@ -60,10 +61,10 @@ class DropButtonSearch extends StatefulWidget {
 class _DropButtonSearchState extends State<DropButtonSearch> {
   String dropdownValue = 'all';
 
-   _DropButtonSearchState(){
+  _DropButtonSearchState() {
     String newValue = dropdownValue;
-        dropdownValue = '$newValue';
-     }
+    dropdownValue = '$newValue';
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -115,22 +116,48 @@ class SearchScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.brown[300],
       body: SafeArea(
-        child: Row(
+        child: Column(
           children: <Widget>[
-            Expanded(
-              flex: 3,
-              child: SearchForm()),
-            Expanded(
-              flex: 1,
-              child: DropButtonSearch())
-            // RaisedButton(
-            //   onPressed: () {
-            //     String inputSearch = _inputSearchcontroller.text;
+            Container(
+              child: Row(
+                children: <Widget>[
+                  Expanded(flex: 3, child: SearchForm()),
+                  Expanded(flex: 1, child: DropButtonSearch())
+                ],
+              ),
+            ),
+            RaisedButton(
+              onPressed: () {
+                // String inputSearch = _inputSearchcontroller.text;
 
-            //     print('$inputSearch');
-            //   },
-            //   color: Colors.red,
-            // )
+                // print('$inputSearch');
+              },
+              color: Colors.red,
+            ),
+            // Stack(
+            //   alignment: AlignmentDirectional(start, y),
+            //   children: <Widget>[
+            //   Container(
+            //     color: Colors.red,
+            //     width: 150.0,
+            //     height: 100.0,
+            //   ),
+            //   Container(
+            //     color: Colors.blue[200],
+            //     width: 150.0,
+            //     height: 100.0,
+            //   ),
+            //   Container(
+            //     decoration: BoxDecoration(
+            //       color: Colors.green[200],
+            //       border: Border(
+            //         // color: Colors.black,
+            //       )
+            //     ),
+            //     width: 150.0,
+            //     height: 100.0,),
+            // ],)
+            // SearchViewList(),
           ],
         ),
       ),

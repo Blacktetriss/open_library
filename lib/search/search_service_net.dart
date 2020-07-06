@@ -4,7 +4,6 @@ import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
 import './search_model.dart';
-import './search_form.dart';
 import './search_screen.dart';
 
 
@@ -16,7 +15,7 @@ import './search_screen.dart';
 Future<List<Doc>> fetchBooks(http.Client client) async {
   final response = await client
         // .get('$searchURL?author=$valueDD=$search');
-      .get('http://openlibrary.org/search.json?author=karl_marx');
+      .get('http://openlibrary.org/search.json?title=africa');
   print(response.statusCode);
   print(response.body.toString());
 
