@@ -6,18 +6,13 @@ import 'package:http/http.dart' as http;
 import './search_model.dart';
 import './search_screen.dart';
 
-
-// const String searchURL = "http://openlibrary.org/search.json";
-// const String valueDD = dropdownValue;
-// const String search = _inputSearchcontroller.text;
-
+const String searchURL = "http://openlibrary.org/search.json";
 
 Future<List<Doc>> fetchBooks(http.Client client) async {
-  final response = await client
-        // .get('$searchURL?author=$valueDD=$search');
-      .get('http://openlibrary.org/search.json?title=africa');
+  final response = await client.get('$searchURL?author=hitler');
+  // await client.get('http://openlibrary.org/search.json?author=hitler');
   print(response.statusCode);
-  print(response.body.toString());
+  print(response.body.toString()); ////////////////////////////////////////////
 
   return compute(parseBooks, response.body);
 }

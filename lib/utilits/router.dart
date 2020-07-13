@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:open_library/home.dart';
 import 'package:open_library/login_screen.dart';
 import 'package:open_library/search/search_screen.dart';
+import 'package:open_library/search/search_view.dart';
 import 'package:open_library/start_animation.dart';
 import './constants.dart';
 
@@ -13,6 +14,8 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (_) => LoginScreen());
     case searchScreen:
       return MaterialPageRoute(builder: (_) => SearchScreen());
+    case searchView:
+      return MaterialPageRoute(builder: (_) => SearchViewList());
     case startAnimation:
       return MaterialPageRoute(builder: (_) => StartAnimation());
     default:

@@ -1,28 +1,61 @@
 import 'package:flutter/material.dart';
-// import 'package:open_library/search/search_form.dart';
 import './search_view.dart';
+import 'package:open_library/utilits/constants.dart';
+
+class SearchScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.brown[300],
+      body: SafeArea(
+        child: Column(
+          children: <Widget>[
+            Container(
+              child: Row(
+                children: <Widget>[
+                  Expanded(flex: 3, child: SearchForm()),
+                  Expanded(flex: 1, child: DropButtonSearch())
+                ],
+              ),
+            ),
+            // RaisedButton(
+            //   child: Text("SEARCH_FUTURE"),
+            //   onPressed: () {
+            //     Navigator.pushNamed(context, searchView);
+            //   },
+            //   color: Colors.red,
+            // ),
+            RaisedButton(
+              child: Text("SEARCH_FUTURE"),
+              onPressed: () {
+                print('yf [eq');
+              },
+              color: Colors.red,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
 
 class SearchForm extends StatefulWidget {
   @override
-  SearchForm({Key key}) : super(key: key);
   _SearchForm createState() => _SearchForm();
 }
 
 class _SearchForm extends State<SearchForm> {
-  final _inputSearchcontroller = TextEditingController();
+  final inputSearchcontroller = TextEditingController();
 
   _SearchForm() {
-    String inputSearch = _inputSearchcontroller.text;
-    _inputSearchcontroller.text = '$inputSearch';
+    String inputSearch = inputSearchcontroller.text;
+    inputSearchcontroller.text = '$inputSearch';
+    print(inputSearchcontroller.text);
   }
 
-  // void initState() {
-  //   super.initState();
-  //   _inputSearchcontroller = TextEditingController();
-  // }
   @override
   void dispose() {
-    _inputSearchcontroller.dispose();
+    inputSearchcontroller.dispose();
     super.dispose();
   }
 
@@ -45,7 +78,7 @@ class _SearchForm extends State<SearchForm> {
             borderRadius: BorderRadius.circular(30.0),
           ),
         ),
-        controller: _inputSearchcontroller,
+        controller: inputSearchcontroller,
       ),
     );
   }
@@ -96,70 +129,16 @@ class _DropButtonSearchState extends State<DropButtonSearch> {
         onChanged: (String newValue) {
           setState(() {
             dropdownValue = newValue;
+            print(dropdownValue); // //////////////////////////////
           });
         },
-        items: <String>['all', 'title', 'autor', 'fuck']
+        items: <String>['all', 'title', 'author', 'fuck']
             .map<DropdownMenuItem<String>>((String value) {
           return DropdownMenuItem<String>(
             value: value,
             child: Text(value),
           );
         }).toList(),
-      ),
-    );
-  }
-}
-
-class SearchScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.brown[300],
-      body: SafeArea(
-        child: Column(
-          children: <Widget>[
-            Container(
-              child: Row(
-                children: <Widget>[
-                  Expanded(flex: 3, child: SearchForm()),
-                  Expanded(flex: 1, child: DropButtonSearch())
-                ],
-              ),
-            ),
-            RaisedButton(
-              onPressed: () {
-                // String inputSearch = _inputSearchcontroller.text;
-
-                // print('$inputSearch');
-              },
-              color: Colors.red,
-            ),
-            // Stack(
-            //   alignment: AlignmentDirectional(start, y),
-            //   children: <Widget>[
-            //   Container(
-            //     color: Colors.red,
-            //     width: 150.0,
-            //     height: 100.0,
-            //   ),
-            //   Container(
-            //     color: Colors.blue[200],
-            //     width: 150.0,
-            //     height: 100.0,
-            //   ),
-            //   Container(
-            //     decoration: BoxDecoration(
-            //       color: Colors.green[200],
-            //       border: Border(
-            //         // color: Colors.black,
-            //       )
-            //     ),
-            //     width: 150.0,
-            //     height: 100.0,),
-            // ],)
-            // SearchViewList(),
-          ],
-        ),
       ),
     );
   }
