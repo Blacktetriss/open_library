@@ -28,7 +28,7 @@ class SearchScreen extends StatelessWidget {
             RaisedButton(
               child: Text("SEARCH_FUTURE"),
               onPressed: () {
-                print('yf [eq');
+                print('inputSearch');
               },
               color: Colors.red,
             ),
