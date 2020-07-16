@@ -35,6 +35,7 @@ dependencies:
   bloc: ^5.0.1
   flutter_bloc: ^5.0.1
   wave: ^0.0.8
+  equatable: ^1.2.2
 
 
 
