@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       onGenerateRoute: router.generateRoute,
       // initialRoute: startAnimation,
       debugShowCheckedModeBanner: false,
-      home: Background(),
+      home: Sssesrch(),
     );
   }
 }

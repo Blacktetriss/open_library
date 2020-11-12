@@ -4,7 +4,6 @@ import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
 import './search_model.dart';
-import './search_screen.dart';
 
 const String searchURL = "http://openlibrary.org/search.json";
 
